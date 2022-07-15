@@ -27,7 +27,7 @@ CREATE TABLE posts (
     text TEXT NOT NULL,
     user_id INT NOT NULL REFERENCES users,
     region_id INT NOT NULL REFERENCES regions,
-    category_id INT NOT NULL REFERENCES categories,
+    -- category_id INT NOT NULL REFERENCES categories,
     location TEXT NOT NULL
 );
 
@@ -61,9 +61,15 @@ VALUES
 ('Informational'),
 ('Celebrity');
 
-INSERT INTO posts (title, text, user_id, region_id, category_id, location)
+INSERT INTO posts (title, text, user_id, region_id, location)
 VALUES
-('The Monarchy', 'Queen Elizabeth II has reigned for many years', 1, 1, 2, 'San Francisco'),
-('The Grammys', 'Beyonce has a lot of Grammys', 1, 2, 3, 'Seattle');
+('The Monarchy', 'Queen Elizabeth II has reigned for many years', 1, 1, 'San Francisco'),
+('The Grammys', 'Beyonce has a lot of Grammys', 1, 2, 'Seattle');
+
+INSERT INTO categories_posts (category_id, post_id)
+VALUES
+(1, 1),
+(2, 1),
+(2, 2); 
 
 
